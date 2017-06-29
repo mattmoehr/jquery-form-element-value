@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test jQuery Form Element Value</title>
+</head>
+<body>
+
+<h1>Testing</h1>
+
+<h2>Input</h2>
+<form target="#">
+  <input type="text" name="input-text" value="Input Text Original Value"/>
+  <br>
+  <select name="select-with-original">
+    <option></option>
+    <option value="Select Original Value" selected>Select Original Value</option>
+    <option value="second">second</option>
+  </select>
+  <br>
+  <select name="select-without-original">
+    <option></option>
+    <option value="third">third</option>
+    <option value="fourth">fourth</option>
+  </select>
+  <br>
+  <textarea name="textarea-with-original">Textarea Original Value</textarea>
+  <br>
+  <textarea name="textarea-without-original"></textarea>
+  <br>
+  <button type="button" name="button-first">first</button>
+  <br>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+    </label>
+    <label class="btn btn-primary">
+    </label>
+    <label class="btn btn-primary">
+    </label>
+  </div>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+    </label>
+    <label class="btn btn-primary">
+    </label>
+    <label class="btn btn-primary">
+    </label>
+  </div>
+</form>
+
+<h2>Output</h2>
+<pre id="pre-output">
+</pre>
+
+<!-- import jQuery and stuff -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="../src/jquery.form-element-value.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    $(':input').change(showOutput);
+    $(':button').click(showOutput);
+
+    function showOutput() {
+
+      console.log(this);
+
+      var feValue_result = $(this).feValue();
+      var val_result     = $(this).val();
+      var prop_result    = $(this).prop('value');
+
+      $('#pre-output').html('');
+      $('#pre-output').append('\n feValue = ' + JSON.stringify(feValue_result));
+      $('#pre-output').append('\n val() = ' + JSON.stringify(val_result));
+      $('#pre-output').append('\n prop(\'value\') = ' + JSON.stringify(prop_result));
+    }
+
+  }); // end document ready
+
+
+  
+</script>
+
+</body>
+</html>
