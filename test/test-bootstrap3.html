@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Bootstrap 3</title>
+
+    <!-- import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <!-- load the jQuery Form Element Value plugin -->
+    <script src="../src/jquery.form-element-value.js"></script>
+
+    <!-- Bootstrap 3 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <style>
+      #input{
+        width: 40%;
+        margin: 2%;
+        float: left;
+      }
+      #output{
+        width: 40%;
+        margin: 2%;
+        float: right;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+
+    <div id="input">
+      <h2>Input</h2>
+
+      <form target="#">
+
+        <div>
+          <label>Input with no name, no type</label>
+          <input class="form-control" value="">
+        </div>
+
+        <div>
+          <label for="exampleInputText1">Text input</label>
+          <input type="text" class="form-control" name="exampleInputText1" id="exampleInputText1">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">Example block-level help text here.</p>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
+        </div>
+
+        <div>
+          <label>Textarea</label>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+
+        <div>
+        <label>Radio buttons</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+              Option two can be something else and selecting it will deselect option one
+            </label>
+          </div>
+          <div class="radio disabled">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+              Option three is disabled
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4" checked>
+              Option four is checked on page load
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="exampleSelect1">Select</label>
+          <select name="exampleSelect1" class="form-control">
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option selected>3 - Pre-selected</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="exampleMultipleSelect1">Multiple select</label>
+          <select multiple name="exampleMultipleSelect1" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option selected>3</option>
+            <option selected>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-default">Submit</button>
+        </div>
+
+      </form>
+    </div>
+
+    <div id="output">
+      <h2>Output</h2>
+      <pre id="pre-output">
+      </pre>
+    </div>
+
+    <script>
+      jQuery(document).ready(function() {
+        $(':input').change(showOutput);
+        $(':button').click(showOutput);
+
+        function showOutput() {
+
+          console.log(this);
+
+          var feValue_result = $(this).feValue();
+          var val_result     = $(this).val();
+          var prop_result    = $(this).prop('value');
+
+          $('#pre-output').html('');
+          $('#pre-output').append('\n feValue = ' + JSON.stringify(feValue_result));
+          $('#pre-output').append('\n val() = ' + JSON.stringify(val_result));
+          $('#pre-output').append('\n prop(\'value\') = ' + JSON.stringify(prop_result));
+
+        }
+
+      }); // end document ready
+    </script>
+
+  </body>
+
+</html>
