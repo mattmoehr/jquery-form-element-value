@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test jQuery Form Element Value</title>
+  <title>HTML5</title>
+
+    <!-- import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <!-- load the jQuery Form Element Value plugin -->
+    <script src="../src/jquery.form-element-value.js"></script>
+    
+    <style>
+      #input{
+        width: 40%;
+        margin: 2%;
+        float: left;
+      }
+      #output{
+        width: 40%;
+        margin: 2%;
+        float: right;
+        overflow-x: scroll;
+      }
+    </style>
 </head>
 <body>
 
-<h1>Testing</h1>
+<div id="input">
+  <h2>Input</h2>
 
-<h2>Input</h2>
-<form target="#">
-  <input type="text" name="input-text" value="Input Text Original Value"/>
-  <br>
-  <select name="select-with-original">
-    <option></option>
-    <option value="Select Original Value" selected>Select Original Value</option>
-    <option value="second">second</option>
-  </select>
-  <br>
-  <select name="select-without-original">
-    <option></option>
-    <option value="third">third</option>
-    <option value="fourth">fourth</option>
-  </select>
-  <br>
-  <textarea name="textarea-with-original">Textarea Original Value</textarea>
-  <br>
-  <textarea name="textarea-without-original"></textarea>
-  <br>
-  <button type="button" name="button-first">first</button>
-  <br>
-  <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-      <input name="checkbox-1" type="checkbox" checked > Checkbox 1 (pre-checked)
-    </label>
-    <label class="btn btn-primary">
-      <input name="checkbox-2" type="checkbox" > Checkbox 2
-    </label>
-    <label class="btn btn-primary">
-      <input name="checkbox-3" type="checkbox" > Checkbox 3
-    </label>
-  </div>
-  <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-      <input type="radio" name="options" id="option1"  checked> Radio 1 (preselected)
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option2" > Radio 2
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="option3" > Radio 3
-    </label>
-  </div>
-</form>
+  <form target="#">
+    <input type="text" name="input-text" value="Input Text Original Value"/>
+    <br>
+    <select name="select-with-original">
+      <option></option>
+      <option value="Select Original Value" selected>Select Original Value</option>
+      <option value="second">second</option>
+    </select>
+    <br>
+    <select name="select-without-original">
+      <option></option>
+      <option value="third">third</option>
+      <option value="fourth">fourth</option>
+    </select>
+    <br>
+    <textarea name="textarea-with-original">Textarea Original Value</textarea>
+    <br>
+    <textarea name="textarea-without-original"></textarea>
+    <br>
+    <button type="button" name="button-first">first</button>
+    <br>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input name="checkbox-1" type="checkbox" checked > Checkbox 1 (pre-checked)
+      </label>
+      <label class="btn btn-primary">
+        <input name="checkbox-2" type="checkbox" > Checkbox 2
+      </label>
+      <label class="btn btn-primary">
+        <input name="checkbox-3" type="checkbox" > Checkbox 3
+      </label>
+    </div>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1"  checked> Radio 1 (preselected)
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" > Radio 2
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3" > Radio 3
+      </label>
+    </div>
+  </form>
+</div>
 
-<h2>Output</h2>
-<pre id="pre-output">
-</pre>
+<div id="output">
 
-<!-- import jQuery and stuff -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="../src/jquery.form-element-value.js"></script>
+  <h2>Output</h2>
+  <pre id="pre-output">
+  </pre>
+</div>
+
 <script>
   jQuery(document).ready(function() {
     $(':input').change(showOutput);
