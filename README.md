@@ -13,7 +13,13 @@ This is a jQuery Plugin that standardizes the values for all of the different HT
 
 ## Usage
 
+### Quick example
 
+### Notes about return values
+
+For `<select multiple...>` elements you will get arrays for currentValue and originalValue. For select elements that are not `multiple`, you will get strings.
+
+## Options
 
 ## Background
 
